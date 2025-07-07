@@ -32,7 +32,8 @@ jobs:
 
       - name: "Construir imagen Docker"
         run: |
-          docker build -t ghcr.io/${{ github.repository }}:latest -t ghcr.io/${{ github.repository }}:${{ github.sha }} .
+          run: |
+            docker build -t ghcr.io/hoperrs/cc3s2-examenfinal-condorkevin:latest -t ghcr.io/hoperrs/cc3s2-examenfinal-condorkevin:${{ github.sha }} .
         env:
           DOCKER_BUILDKIT: 1
 
@@ -41,5 +42,5 @@ jobs:
 
       - name: "Publicar imagen en GHCR"
         run: |
-          docker push ghcr.io/${{ github.repository }}:latest
-          docker push ghcr.io/${{ github.repository }}:${{ github.sha }}
+          docker push ghcr.io/hoperrs/cc3s2-examenfinal-condorkevin:latest
+          docker push ghcr.io/hoperrs/cc3s2-examenfinal-condorkevin:${{ github.sha }}
