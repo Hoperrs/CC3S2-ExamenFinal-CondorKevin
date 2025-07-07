@@ -1,0 +1,16 @@
+spec:
+  containers:
+    - name: app
+      image: ghcr.io/hoperrs/cc3s2-examenfinal-condorkevin:latest
+      livenessProbe:
+        httpGet:
+          path: /health
+          port: 80
+        initialDelaySeconds: 10
+        periodSeconds: 10
+      readinessProbe:
+        httpGet:
+          path: /ready
+          port: 80
+        initialDelaySeconds: 5
+        periodSeconds: 5
